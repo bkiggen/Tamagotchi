@@ -19,15 +19,22 @@
     {
       @foreach (Friend friend in Model)
       {
-        <div>
-            <h2>Name: @friend.GetName()</h2>
-            <h4>Hunger: @friend.GetHunger()</h4>
-            <h4>Rest: @friend.GetRest()</h4>
-            <h4>Attention: @friend.GetAttention()</h4>
-        </div>
+            <h3>@friend.GetName()</h3>
+        <form method="post" action="/friends/@friend.GetId()/hunger">
+            <div style="display: flex; width: 200px; justify-content: space-between;"><h4>Hunger: @friend.GetHunger()</h4><button type="submit">Increase</button></div>
+        </form>
+        <br/>
+        <form method="post" action="/friends/@friend.GetId()/rest">
+            <div style="display: flex; width: 200px; justify-content: space-between;"><h4>Rest: @friend.GetRest()</h4><button type="submit">Increase</button></div>
+        </form>
+        <br/>
+        <form method="post" action="/friends/@friend.GetId()/attention">
+            <div style="display: flex; width: 200px; justify-content: space-between;"><h4>Attention: @friend.GetAttention()</h4><button type="submit">Increase</button></div>
+        </form>
         <br/>
       }
     }
+    <a href="/">Add more?</a>
 
     </ul>
   </body>
