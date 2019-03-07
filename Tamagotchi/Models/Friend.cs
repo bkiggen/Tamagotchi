@@ -5,9 +5,9 @@ namespace Tamagotchi.Models
     public class Friend
     {
         private string _name;
-        private int _hunger;
-        private int _attention;
-        private int _rest;
+        private int _hunger = 50;
+        private int _attention = 50;
+        private int _rest = 50;
 
         private static List<Friend> _friendList = new List<Friend> {};
 
@@ -16,38 +16,42 @@ namespace Tamagotchi.Models
             _name = name;
             _friendList.Add(this);
         }
+        public static List<Friend> GetAll()
+        {
+            return _friendList;
+        }
         public string GetName()
         {
             return _name;
         }
-        public string GetHunger()
+        public int GetHunger()
         {
-            return _Hunger;
+            return _hunger;
         }
-        public string GetAttention()
+        public int GetAttention()
         {
-            return _Attention;
+            return _attention;
         }
-        public string GetRest()
+        public int GetRest()
         {
-            return _Rest;
+            return _rest;
         }
-        public string SetName(string newName)
+        public void SetName(string newName)
         {
             _name = newName;
         }
 
-        public void SetHunger()
+        public void IncreaseHunger()
         {
             _hunger += 1;
         }
-        public void SetAttention()
+        public void IncreaseAttention()
         {
-            _Attention += 1;
+            _attention += 1;
         }
-        public void SetRest()
+        public void IncreaseRest()
         {
-            _Rest += 1;
+            _rest += 1;
         }
         public static void ClearAll()
         {

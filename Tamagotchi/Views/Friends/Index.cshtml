@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Your Friends!</title>
+  </head>
+  <body>
+    @using Tamagotchi.Models;
+
+    <h1>Your Friends:</h1>
+    <ul>
+
+    @if (Model.Count == 0)
+    {
+      <p>You have no friends! So Sad!</p>
+    }
+    @if(Model.Count != 0)
+    {
+      @foreach (Friend friend in Model)
+      {
+        <div>
+            <h2>Name: @friend.GetName()</h2>
+            <h4>Hunger: @friend.GetHunger()</h4>
+            <h4>Rest: @friend.GetRest()</h4>
+            <h4>Attention: @friend.GetAttention()</h4>
+        </div>
+        <br/>
+      }
+    }
+
+    </ul>
+  </body>
+</html>
